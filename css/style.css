@@ -1,23 +1,25 @@
-:root{
-  --mainColor:#488EFF;
-  --secondaryColor:#fff;
+:root {
+  --mainColor: #488EFF;
+  --secondaryColor: #fff;
   --fontOne: Clarika Grotesque;
   --bigTextSize: 3rem;
   --mediumTextSize: 2rem;
   --smallTextSize: 1.3rem;
   --padding: 1.4rem;
 }
-*{
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
- 
+
 }
 
-body{
+body {
   font-family: var(--fontOne);
-  display:grid;
+  display: grid;
   grid-template-rows: auto 1fr auto;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -29,9 +31,10 @@ h2 {
   font-size: var(--bigTextSize);
   margin: var(--mediumTextSize) 0;
   font-weight: 900;
-  
+
 }
-h3{
+
+h3 {
   color: var(--mainColor);
   font-size: var(--mediumTextSize);
   margin: var(--smallTextSize) 0;
@@ -48,19 +51,21 @@ a {
   color: var(--mainColor);
   font-size: var(--smallTextSize);
 }
+
 img {
   max-width: 100%;
   height: auto;
 }
-nav ul{
+
+nav ul {
   grid-template-columns: var(--padding) repeat(4, 1fr) var(--padding);
   list-style-type: none;
-  display:grid;
-  align-items: center; 
+  display: grid;
+  align-items: center;
   justify-items: center;
 }
 
-.logo{
+.logo {
   grid-column: 2/3;
   height: 8vh;
   width: 8vh;
@@ -69,71 +74,78 @@ nav ul{
   justify-self: start;
 }
 
-main{
-  display:grid;
+main {
+  display: grid;
   grid-template-rows: 80vh repeat(4, auto);
 }
-main >*{
+
+main>* {
   padding: 0 var(--padding) var(--mediumTextSize) var(--padding);
-  
+
 }
-.hero{
+
+.hero {
   background-image: url(../img/moutain.jpg);
   background-size: cover;
   background-position: center center;
-  display:grid;
+  display: grid;
   grid-gap: var(--bigTextSize);
   grid-template-rows: 2fr 1fr 1fr;
-  grid-template-areas: 
-  "..."
-  "title"
-  "header";
+  grid-template-areas:
+    "..."
+    "title"
+    "header";
   color: var(--secondaryColor);
-  
+
 }
 
-.hero h1{
+.hero h1 {
   grid-area: title;
 }
-.hero h3{
+
+.hero h3 {
   color: var(--secondaryColor);
   grid-area: header;
 }
 
- .products{
+.products {
   text-align: center;
-  display:grid;
-  grid-template-rows: auto repeat(3,1fr);
+  display: grid;
+  grid-template-rows: auto repeat(3, 1fr);
   justify-content: center;
-  grid-template-areas: 
-  "header"
-  "product-1"
-  "product-2"
-  "product-3";
-}  
+  grid-template-areas:
+    "header"
+    "product-1"
+    "product-2"
+    "product-3";
+}
 
-.products h2{
+.products h2 {
   grid-area: header;
 }
-.category:nth-child(2){
+
+.category:nth-child(2) {
   grid-area: product-1;
 }
-.category:nth-child(3){
+
+.category:nth-child(3) {
   grid-area: product-2;
 }
-.category:nth-child(4){
+
+.category:nth-child(4) {
   grid-area: product-3;
 }
 
 
 .category {
-  display:grid;
+  display: grid;
   justify-items: center;
   align-items: center;
-  grid-template-rows: repeat(3,auto);
+  grid-template-rows: repeat(3, auto);
   grid-gap: var(--smallTextSize);
 }
-button{
+
+button {
   background-color: var(--mainColor);
   font-family: var(--fontOne);
   font-size: var(--smallTextSize);
@@ -144,44 +156,63 @@ button{
   padding: 5px;
 }
 
-.about, .about h3{
+.about,
+.about h3 {
   background-color: var(--mainColor);
   color: var(--secondaryColor);
 
 }
-.contact-info{
+
+.contact-info {
   line-height: var(--mediumTextSize);
 }
 
-footer{
+footer {
   height: auto;
   background-color: var(--mainColor);
-  color:var(--secondaryColor);
+  color: var(--secondaryColor);
   text-align: center;
   padding: var(--padding);
 }
-footer a{
-  color:var(--secondaryColor);
+
+footer a {
+  color: var(--secondaryColor);
 }
 
-@media (min-width:640px){
-   .products {
+@media (min-width:640px) {
+  .products {
     grid-gap: var(--mediumTextSize);
     grid-template-rows: auto repeat(2, 1fr);
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
-    "header header header header "
-    "product-1 product-1 product-2 product-2"
-    "... product-3 product-3 ..."; 
-   } 
+      "header header header header "
+      "product-1 product-1 product-2 product-2"
+      "... product-3 product-3 ...";
+  }
 }
-@media (min-width:1024px){
-   .products {
+
+@media (min-width:1024px) {
+  :root {
+    --bigTextSize: 3.5rem;
+    --mediumTextSize: 2.5rem;
+    --smallTextSize: 2.3rem;
+    --padding: 1.6rem;
+  }
+
+  .hero {
+    --bigTextSize: 5rem;
+  }
+
+  .products {
     grid-gap: var(--bigTextSize);
     grid-template-rows: auto 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
-    "header header header "
-    "product-1 product-2 product-3";
-   } 
+      "header header header "
+      "product-1 product-2 product-3";
+  }
+
+  .contact-info {
+    line-height: var(--bigTextSize);
+  }
 }
